@@ -12,6 +12,12 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var monsterImg: MonsterImg!
+   
+    @IBOutlet weak var backgroundImg: UIImageView!    
+    @IBOutlet weak var groundImg: UIImageView!
+    
+    @IBOutlet weak var choosePetStackView: UIStackView!
+    
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
     
@@ -25,7 +31,6 @@ class ViewController: UIViewController {
     var sfxDeath: AVAudioPlayer!
     var sfxSkull: AVAudioPlayer!
     
-    
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
     let MAX_PENALTIES = 3
@@ -35,12 +40,43 @@ class ViewController: UIViewController {
     var monsterHappy = false
     var currentItem: UInt32 = 0
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    
+    @IBAction func petChosen(sender: AnyObject) {
+        
+        switch sender.tag {
+        case 0:
+            monsterImg.assignHero()
+            monsterImg.playIdleAnimation()
+            startGame()
+            
+        case 1:
+            monsterImg.playIdleAnimation()
+            startGame()
+        default: print("Error!")
+        }
+        
+    }
+    
+    
+    
+    func startGame() {
         
         // TODO: Add a way for a player to choose the monster they want to play with.
         // Whatever character is picked is the one that is used until the app is closed
         // and re-opened. Also, set the background to match the chosen character.
+        monsterImg.hidden = false
+        backgroundImg.hidden = false
+        groundImg.hidden = false
+        choosePetStackView.hidden = true
+        foodImg.hidden = false
+        heartImg.hidden = false
         
         // TODO: Pick a third item that the monster needs randomly - obedience - (find own graphic)
         foodImg.dropTarget = monsterImg
@@ -75,8 +111,12 @@ class ViewController: UIViewController {
             print(err.debugDescription)
         }
         
+        
         startTimer()
     }
+    
+    
+    
 
     func itemDroppedOnCharacter(notif: AnyObject) {
         monsterHappy = true
@@ -103,6 +143,7 @@ class ViewController: UIViewController {
     }
     
     func changeGameState() {
+        
         
         if !monsterHappy {
            
