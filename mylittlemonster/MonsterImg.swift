@@ -22,6 +22,8 @@ class MonsterImg: UIImageView {
     
     func playIdleAnimation() {
         
+        // TODO: Add a way for different images because this is tied to onw type of monster
+        
         self.image = UIImage(named: "idle1.png")
        
         var imgArray = [UIImage]()

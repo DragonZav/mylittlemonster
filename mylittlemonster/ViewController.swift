@@ -38,6 +38,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TODO: Add a way for a player to choose the monster they want to play with.
+        // Whatever character is picked is the one that is used until the app is closed
+        // and re-opened. Also, set the background to match the chosen character.
+        
+        // TODO: Pick a third item that the monster needs randomly - obedience - (find own graphic)
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
         
@@ -148,6 +153,9 @@ class ViewController: UIViewController {
         timer.invalidate()
         monsterImg.playDeathAnimation()
         sfxDeath.play()
+        
+        //TODO: Add a way to restart the Game with a replay button
+        // full health, come back to life on image, (use own graphic)
     }
 
 }
