@@ -13,10 +13,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var monsterImg: MonsterImg!
    
-    @IBOutlet weak var backgroundImg: UIImageView!    
+    @IBOutlet weak var backgroundImg: UIImageView!
     @IBOutlet weak var groundImg: UIImageView!
     
     @IBOutlet weak var choosePetStackView: UIStackView!
+    @IBOutlet weak var dragItemsStackView: UIStackView!
     
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
@@ -24,6 +25,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var penalty1Img: UIImageView!
     @IBOutlet weak var penalty2Img: UIImageView!    
     @IBOutlet weak var penalty3Img: UIImageView!
+    
+    @IBOutlet weak var ChoosePetMsgLbl: UILabel!
+    
     
     var musicPlayer: AVAudioPlayer!
     var sfxBite: AVAudioPlayer!
@@ -75,8 +79,8 @@ class ViewController: UIViewController {
         backgroundImg.hidden = false
         groundImg.hidden = false
         choosePetStackView.hidden = true
-        foodImg.hidden = false
-        heartImg.hidden = false
+        dragItemsStackView.hidden = false
+        ChoosePetMsgLbl.hidden = true
         
         // TODO: Pick a third item that the monster needs randomly - obedience - (find own graphic)
         foodImg.dropTarget = monsterImg
