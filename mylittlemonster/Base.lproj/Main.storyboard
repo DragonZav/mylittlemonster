@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="egc-Nj-Wsa">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="egc-Nj-Wsa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -33,9 +33,6 @@
                                 <fontDescription key="fontDescription" name="Minecraft" family="Minecraft" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="119" y="424" width="154" height="24"/>
-                                </variation>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idle1" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-Ea-moP" customClass="MonsterImg" customModule="mylittlemonster" customModuleProvider="target">
                                 <rect key="frame" x="-76" y="197" width="681" height="361"/>
@@ -45,12 +42,32 @@
                                     <constraint firstAttribute="width" constant="681" id="gpN-Ld-ON4"/>
                                 </constraints>
                             </imageView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="gjx-RC-VTx">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gjx-RC-VTx">
                                 <rect key="frame" x="155" y="104" width="290" height="98"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="rkJ-Pi-Yn7" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="98"/>
                                         <animations/>
+                                    </imageView>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-2r-CJV" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="98" id="DiT-WD-i2h"/>
+                                            <constraint firstAttribute="width" constant="117" id="RAE-8H-bom"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DiT-WD-i2h"/>
+                                                <exclude reference="RAE-8H-bom"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="DiT-WD-i2h"/>
+                                                <include reference="RAE-8H-bom"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="Jvw-az-buQ" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
                                         <rect key="frame" x="195" y="0.0" width="95" height="98"/>
@@ -72,7 +89,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="nxd-bX-2sp">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground2" translatesAutoresizingMaskIntoConstraints="NO" id="nxd-bX-2sp">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <animations/>
                                 <constraints>
@@ -224,6 +241,7 @@
                         <outlet property="ChoosePetMsgLbl" destination="2Yk-sL-KsY" id="Ldf-0K-Imt"/>
                         <outlet property="backgroundImg" destination="egc-Nj-Wsa" id="7pT-5y-b2V"/>
                         <outlet property="choosePetStackView" destination="zsh-z8-MPX" id="DWs-2k-y1Z"/>
+                        <outlet property="diamondImg" destination="MN2-2r-CJV" id="xo2-0E-riA"/>
                         <outlet property="dragItemsStackView" destination="gjx-RC-VTx" id="FQg-xo-aW9"/>
                         <outlet property="foodImg" destination="Jvw-az-buQ" id="bGV-h5-tbE"/>
                         <outlet property="groundImg" destination="nxd-bX-2sp" id="Ygm-jE-yes"/>
@@ -240,9 +258,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg" width="768" height="1024"/>
+        <image name="bg2" width="768" height="1024"/>
+        <image name="diamond" width="117" height="98"/>
         <image name="food" width="95" height="98"/>
-        <image name="ground" width="1444" height="151"/>
+        <image name="ground2" width="1144" height="151"/>
         <image name="heart" width="95" height="98"/>
         <image name="idle1" width="889" height="615"/>
         <image name="idleHero1" width="271" height="271"/>

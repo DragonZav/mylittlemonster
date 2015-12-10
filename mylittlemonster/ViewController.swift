@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
+    // Diamond clip art from clker.com
+    @IBOutlet weak var diamondImg: DragImg!
     
     @IBOutlet weak var penalty1Img: UIImageView!
     @IBOutlet weak var penalty2Img: UIImageView!    
@@ -34,6 +36,7 @@ class ViewController: UIViewController {
     var sfxHeart: AVAudioPlayer!
     var sfxDeath: AVAudioPlayer!
     var sfxSkull: AVAudioPlayer!
+    var sfxDiamond: AVAudioPlayer!
     
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
@@ -56,6 +59,8 @@ class ViewController: UIViewController {
         
         switch sender.tag {
         case 0:
+            backgroundImg.image = UIImage(named: "bg.png")
+            groundImg.image = UIImage(named: "ground.png")
             monsterImg.assignHero()
             monsterImg.playIdleAnimation()
             
@@ -70,13 +75,8 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    func startGame() {
+    func prepareVisuals() {
         
-        // TODO: Add a way for a player to choose the monster they want to play with.
-        // Whatever character is picked is the one that is used until the app is closed
-        // and re-opened. Also, set the background to match the chosen character.
         monsterImg.hidden = false
         backgroundImg.hidden = false
         
@@ -85,15 +85,17 @@ class ViewController: UIViewController {
         dragItemsStackView.hidden = false
         ChoosePetMsgLbl.hidden = true
         
-        // TODO: Pick a third item that the monster needs randomly - obedience - (find own graphic)
+        
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
+        diamondImg.dropTarget = monsterImg
         
         penalty1Img.alpha = DIM_ALPHA
         penalty2Img.alpha = DIM_ALPHA
         penalty3Img.alpha = DIM_ALPHA
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnCharacter:", name: "onTargetDropped", object: nil)
+    }
+    
+    func prepareSoundFx() {
         
         do {
             try musicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cave-music", ofType: "mp3")!))
@@ -103,6 +105,8 @@ class ViewController: UIViewController {
             try sfxDeath = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("death", ofType: "wav")!))
             try sfxSkull = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("skull", ofType: "wav")!))
             
+            // Jump sound from SoundBible.com
+            try sfxDiamond = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("diamond", ofType: "wav")!))
             
             musicPlayer.prepareToPlay()
             musicPlayer.play()
@@ -111,14 +115,21 @@ class ViewController: UIViewController {
             sfxHeart.prepareToPlay()
             sfxDeath.prepareToPlay()
             sfxSkull.prepareToPlay()
-            
-            
+            sfxDiamond.prepareToPlay()
             
         } catch let err as NSError {
             print(err.debugDescription)
         }
+    }
+    
+    
+    
+    func startGame() {
         
-        
+        prepareVisuals()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnCharacter:", name: "onTargetDropped", object: nil)
+        prepareSoundFx()        
+        chooseRandomItems()
         startTimer()
     }
     
@@ -133,9 +144,13 @@ class ViewController: UIViewController {
         foodImg.userInteractionEnabled = false
         heartImg.alpha = DIM_ALPHA
         heartImg.userInteractionEnabled = false
+        diamondImg.alpha = DIM_ALPHA
+        diamondImg.userInteractionEnabled = false
         
         if currentItem == 0 {
             sfxHeart.play()
+        } else if currentItem == 1 {
+            sfxDiamond.play()
         } else {
             sfxBite.play()
         }
@@ -176,17 +191,42 @@ class ViewController: UIViewController {
                 gameOver()
             }
         }
-        let rand = arc4random_uniform(2) // 0 or 1
+        
+        chooseRandomItems()
+        monsterHappy = false
+    }
+    
+    func chooseRandomItems() {
+       
+        let rand = arc4random_uniform(3) // 0, 1, or 2
         if rand == 0 {
+            
             foodImg.alpha = DIM_ALPHA
             foodImg.userInteractionEnabled = false
             
+            diamondImg.alpha = DIM_ALPHA
+            diamondImg.userInteractionEnabled = false
+            
             heartImg.alpha = OPAQUE
             heartImg.userInteractionEnabled = true
-        } else {
-           
+        } else if rand == 1 {
+            
+            foodImg.alpha = DIM_ALPHA
+            foodImg.userInteractionEnabled = false
+            
             heartImg.alpha = DIM_ALPHA
             heartImg.userInteractionEnabled = false
+            
+            diamondImg.alpha = OPAQUE
+            diamondImg.userInteractionEnabled = true
+          
+        } else {
+            
+            heartImg.alpha = DIM_ALPHA
+            heartImg.userInteractionEnabled = false
+            
+            diamondImg.alpha = DIM_ALPHA
+            diamondImg.userInteractionEnabled = false
             
             foodImg.alpha = OPAQUE
             foodImg.userInteractionEnabled = true
@@ -194,7 +234,7 @@ class ViewController: UIViewController {
         }
         
         currentItem = rand
-        monsterHappy = false
+
     }
 
     func gameOver() {
