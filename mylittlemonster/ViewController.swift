@@ -58,6 +58,8 @@ class ViewController: UIViewController {
         case 0:
             monsterImg.assignHero()
             monsterImg.playIdleAnimation()
+            
+            
             startGame()
             
         case 1:
@@ -77,6 +79,7 @@ class ViewController: UIViewController {
         // and re-opened. Also, set the background to match the chosen character.
         monsterImg.hidden = false
         backgroundImg.hidden = false
+        
         groundImg.hidden = false
         choosePetStackView.hidden = true
         dragItemsStackView.hidden = false

@@ -33,6 +33,9 @@
                                 <fontDescription key="fontDescription" name="Minecraft" family="Minecraft" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="119" y="424" width="154" height="24"/>
+                                </variation>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idle1" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-Ea-moP" customClass="MonsterImg" customModule="mylittlemonster" customModuleProvider="target">
                                 <rect key="frame" x="-76" y="197" width="681" height="361"/>
@@ -114,11 +117,11 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zsh-z8-MPX">
-                                <rect key="frame" x="0.0" y="226" width="400" height="165"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zsh-z8-MPX">
+                                <rect key="frame" x="0.0" y="226" width="1798" height="615"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3E-cQ-FQ9">
-                                        <rect key="frame" x="20" y="20" width="150" height="125"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3E-cQ-FQ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="889" height="615"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="7aG-pO-xQo"/>
@@ -141,8 +144,8 @@
                                             <action selector="petChosen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LYB-nq-hXP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2r-kc-qaZ">
-                                        <rect key="frame" x="230" y="20" width="150" height="125"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2r-kc-qaZ">
+                                        <rect key="frame" x="909" y="0.0" width="889" height="615"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="Qlp-Pm-6eW"/>
@@ -197,11 +200,11 @@
                                 <exclude reference="2Yk-sL-KsY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="61X-V9-47w"/>
+                                <exclude reference="Ruq-5m-HdN"/>
                                 <exclude reference="KRp-wI-IS1"/>
                                 <exclude reference="mRk-A4-Rse"/>
                                 <exclude reference="cot-de-kga"/>
-                                <exclude reference="61X-V9-47w"/>
-                                <exclude reference="Ruq-5m-HdN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -209,11 +212,11 @@
                                 <include reference="2Yk-sL-KsY"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="61X-V9-47w"/>
+                                <include reference="Ruq-5m-HdN"/>
                                 <include reference="KRp-wI-IS1"/>
                                 <include reference="mRk-A4-Rse"/>
                                 <include reference="cot-de-kga"/>
-                                <include reference="61X-V9-47w"/>
-                                <include reference="Ruq-5m-HdN"/>
                             </mask>
                         </variation>
                     </view>
