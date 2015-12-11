@@ -257,6 +257,7 @@ class ViewController: UIViewController {
     @IBAction func playAgainPressed(sender: AnyObject) {
         newGameButtonsStackView.hidden = true
         monsterImg.image = currentMonsterImg
+        monsterImg.playIdleAnimation()
         penalties = 0
         prepareVisuals()
         startGame()
