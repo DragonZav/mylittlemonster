@@ -188,6 +188,60 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nPV-42-Cm3">
+                                <rect key="frame" x="20" y="446" width="356" height="74"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUB-VT-nL4">
+                                        <rect key="frame" x="20" y="20" width="154" height="34"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="7ee-64-akI"/>
+                                            <constraint firstAttribute="width" constant="154" id="RxQ-ws-k4l"/>
+                                        </constraints>
+                                        <state key="normal" image="buttonImg"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7ee-64-akI"/>
+                                                <exclude reference="RxQ-ws-k4l"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="7ee-64-akI"/>
+                                                <include reference="RxQ-ws-k4l"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="playAgainPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jlL-Qd-vQX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjy-bL-7dA">
+                                        <rect key="frame" x="182" y="20" width="154" height="34"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="6rN-ra-cJO"/>
+                                            <constraint firstAttribute="width" constant="154" id="HTd-t6-IxR"/>
+                                        </constraints>
+                                        <state key="normal" image="buttonImg2"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6rN-ra-cJO"/>
+                                                <exclude reference="HTd-t6-IxR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="6rN-ra-cJO"/>
+                                                <include reference="HTd-t6-IxR"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="quitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjM-pP-vWl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,6 +250,7 @@
                             <constraint firstItem="2Yk-sL-KsY" firstAttribute="top" secondItem="zsh-z8-MPX" secondAttribute="bottom" constant="66" id="61X-V9-47w"/>
                             <constraint firstItem="cur-jB-L5N" firstAttribute="centerX" secondItem="9zN-bI-jTJ" secondAttribute="centerX" constant="-3" id="8jU-pB-av3"/>
                             <constraint firstAttribute="trailing" secondItem="egc-Nj-Wsa" secondAttribute="trailing" id="9bc-ko-0se"/>
+                            <constraint firstItem="nPV-42-Cm3" firstAttribute="centerX" secondItem="2Yk-sL-KsY" secondAttribute="centerX" id="9vI-bU-3xQ"/>
                             <constraint firstItem="9zN-bI-jTJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AkQ-41-Xep"/>
                             <constraint firstItem="gjx-RC-VTx" firstAttribute="top" secondItem="9zN-bI-jTJ" secondAttribute="bottom" constant="15" id="BCl-cA-dyV"/>
                             <constraint firstItem="cur-jB-L5N" firstAttribute="centerY" secondItem="9zN-bI-jTJ" secondAttribute="centerY" id="DWg-pa-ZUz"/>
@@ -206,6 +261,7 @@
                             <constraint firstItem="2Yk-sL-KsY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-4" id="Ruq-5m-HdN"/>
                             <constraint firstAttribute="trailing" secondItem="nxd-bX-2sp" secondAttribute="trailing" id="Vac-pI-fyy"/>
                             <constraint firstItem="9zN-bI-jTJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VnG-7K-ziO"/>
+                            <constraint firstItem="nPV-42-Cm3" firstAttribute="top" secondItem="2Yk-sL-KsY" secondAttribute="bottom" constant="5" id="Wps-K4-mea"/>
                             <constraint firstItem="zsh-z8-MPX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cot-de-kga"/>
                             <constraint firstItem="egc-Nj-Wsa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dP8-Or-6E5"/>
                             <constraint firstItem="gjx-RC-VTx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mRk-A4-Rse"/>
@@ -217,11 +273,13 @@
                                 <exclude reference="2Yk-sL-KsY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="61X-V9-47w"/>
-                                <exclude reference="Ruq-5m-HdN"/>
                                 <exclude reference="KRp-wI-IS1"/>
                                 <exclude reference="mRk-A4-Rse"/>
                                 <exclude reference="cot-de-kga"/>
+                                <exclude reference="61X-V9-47w"/>
+                                <exclude reference="Ruq-5m-HdN"/>
+                                <exclude reference="9vI-bU-3xQ"/>
+                                <exclude reference="Wps-K4-mea"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -229,11 +287,13 @@
                                 <include reference="2Yk-sL-KsY"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="61X-V9-47w"/>
-                                <include reference="Ruq-5m-HdN"/>
                                 <include reference="KRp-wI-IS1"/>
                                 <include reference="mRk-A4-Rse"/>
                                 <include reference="cot-de-kga"/>
+                                <include reference="61X-V9-47w"/>
+                                <include reference="Ruq-5m-HdN"/>
+                                <include reference="9vI-bU-3xQ"/>
+                                <include reference="Wps-K4-mea"/>
                             </mask>
                         </variation>
                     </view>
@@ -247,6 +307,7 @@
                         <outlet property="groundImg" destination="nxd-bX-2sp" id="Ygm-jE-yes"/>
                         <outlet property="heartImg" destination="rkJ-Pi-Yn7" id="VV1-Xm-yPV"/>
                         <outlet property="monsterImg" destination="cvk-Ea-moP" id="2Ua-af-FpU"/>
+                        <outlet property="newGameButtonsStackView" destination="nPV-42-Cm3" id="lVT-MI-429"/>
                         <outlet property="penalty1Img" destination="Wnx-rP-cu9" id="c8m-0O-3qR"/>
                         <outlet property="penalty2Img" destination="0h7-fs-GsL" id="SNs-Om-qhJ"/>
                         <outlet property="penalty3Img" destination="0H7-qB-LIZ" id="Akh-Jj-IdN"/>
@@ -259,6 +320,8 @@
     </scenes>
     <resources>
         <image name="bg2" width="768" height="1024"/>
+        <image name="buttonImg" width="100" height="34"/>
+        <image name="buttonImg2" width="100" height="34"/>
         <image name="diamond" width="117" height="98"/>
         <image name="food" width="95" height="98"/>
         <image name="ground2" width="1144" height="151"/>

@@ -8,14 +8,13 @@
 
 import UIKit
 import AVFoundation
+import Darwin
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var monsterImg: MonsterImg!
-   
     @IBOutlet weak var backgroundImg: UIImageView!
     @IBOutlet weak var groundImg: UIImageView!
-    
     @IBOutlet weak var choosePetStackView: UIStackView!
     @IBOutlet weak var dragItemsStackView: UIStackView!
     
@@ -29,6 +28,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var penalty3Img: UIImageView!
     
     @IBOutlet weak var ChoosePetMsgLbl: UILabel!
+
+    @IBOutlet weak var newGameButtonsStackView: UIStackView!
+ 
+    
+    
     
     
     var musicPlayer: AVAudioPlayer!
@@ -46,7 +50,7 @@ class ViewController: UIViewController {
     var timer: NSTimer!
     var monsterHappy = false
     var currentItem: UInt32 = 0
-    
+    var currentMonsterImg: UIImage?
    
     
     override func viewDidLoad() {
@@ -63,16 +67,23 @@ class ViewController: UIViewController {
             groundImg.image = UIImage(named: "ground.png")
             monsterImg.assignHero()
             monsterImg.playIdleAnimation()
-            
-            
+            assignCurrentMonsterImg()
             startGame()
             
         case 1:
+            assignCurrentMonsterImg()
             monsterImg.playIdleAnimation()
             startGame()
         default: print("Error!")
         }
         
+    }
+    
+    func assignCurrentMonsterImg() {
+        if let img = monsterImg.image {
+            currentMonsterImg = img
+        }
+
     }
     
     func prepareVisuals() {
@@ -236,15 +247,33 @@ class ViewController: UIViewController {
         currentItem = rand
 
     }
+    
+    
+    @IBAction func playAgainPressed(sender: AnyObject) {
+        newGameButtonsStackView.hidden = true
+        monsterImg.image = currentMonsterImg
+        penalties = 0
+        prepareVisuals()
+        startGame()
+    }
+    
+ 
+    @IBAction func quitPressed(sender: AnyObject) {
+        
+        exit(0)
+    }
+    
+    
 
     func gameOver() {
         timer.invalidate()
         monsterImg.playDeathAnimation()
         sfxDeath.play()
         
-        //TODO: Add a way to restart the Game with a replay button
-        // full health, come back to life on image, (use own graphic)
-    }
+        newGameButtonsStackView.hidden = false
+        
+        
+            }
 
 }
 
