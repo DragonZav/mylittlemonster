@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
+  
     // Diamond clip art from clker.com
     @IBOutlet weak var diamondImg: DragImg!
     
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ChoosePetMsgLbl: UILabel!
 
+    // Button image from clker.com
     @IBOutlet weak var newGameButtonsStackView: UIStackView!
  
     
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
     @IBAction func petChosen(sender: AnyObject) {
         
         switch sender.tag {
+       
         case 0:
             backgroundImg.image = UIImage(named: "bg.png")
             groundImg.image = UIImage(named: "ground.png")
@@ -207,6 +210,8 @@ class ViewController: UIViewController {
         monsterHappy = false
     }
     
+    
+    // TODO: refactor DRY code within this function
     func chooseRandomItems() {
        
         let rand = arc4random_uniform(3) // 0, 1, or 2
