@@ -277,7 +277,7 @@ class ViewController: UIViewController {
         sfxDeath.play()
         
         newGameButtonsStackView.hidden = false
-        
+        dragItemsStackView.hidden = true
         
             }
 
