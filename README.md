@@ -1,5 +1,10 @@
 # mylittlemonster
 
+Citations:
+
++ Diamond clipart: www.clker.com
++ New Game button image: www.clker.com
++ Sound for diamond: www.SoundBible.com
 
 Screentshots:
 
